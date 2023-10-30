@@ -1,5 +1,8 @@
+package src.nomdedomaine.classes;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Panier {
     private List<Produit> produits;
@@ -50,5 +53,9 @@ public class Panier {
     public void viderPanier() {
         produits.clear();
         System.out.println("Le panier a été vidé.");
+    }
+
+    public List<Produit> getProduits() {
+        return null;
     }
 }
