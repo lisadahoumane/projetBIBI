@@ -9,7 +9,7 @@ public class Commande {
     private List<Produit> produits;
     private double montantTotal;
 
-    public Commande(int numeroCommande, Utilisateur utilisateur, List<Produit> produits) {
+    public commande(int numeroCommande, Utilisateur utilisateur, List<Produit> produits) {
         this.numeroCommande = numeroCommande;
         this.utilisateur = utilisateur;
         this.produits = produits;

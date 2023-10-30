@@ -1,8 +1,6 @@
-package src.nomdedomaine.classes.categorie;
+package src.nomdedomaine.classes;
 import java.util.ArrayList;
 import java.util.List;
-
-import src.nomdedomaine.classes.Produit;
 
 public class ProduitController {
     private List<Produit> produits;
@@ -13,8 +11,13 @@ public class ProduitController {
 
     // Méthode pour ajouter un produit
     public void ajouterProduit(Produit produit) {
-        produits.add(produit);
+        if (!produits.contains(produit)) {
+            produits.add(produit);
+        } else {
+            System.out.println("Ce produit est déjà dans la liste.");
+        }
     }
+    
 
     // Méthode pour supprimer un produit
     public void supprimerProduit(Produit produit) {
@@ -53,6 +56,7 @@ public class ProduitController {
         produitExist.setCategorie(nouveauProduit.getCategorie());
         produitExist.setCouleursDisponibles(nouveauProduit.getCouleursDisponibles());
     }
+ 
 
     // Méthode pour vérifier l'existence d'un produit par son nom
     public boolean produitExiste(String nom) {
@@ -63,7 +67,12 @@ public class ProduitController {
         }
         return false;
     }
-
+    //fait la meme chose que produitExiste proposée par chatGPT jsp si elle est mieux 
+    /* public boolean produitExiste(String nom) {
+        return produits.stream().anyMatch(produit -> produit.getNom().equals(nom));
+    }
+    */
+    
     // Méthode pour filtrer les produits par catégorie
     public List<Produit> filtrerProduitsParCategorie(Produit.Categorie categorie) {
         List<Produit> produitsFiltres = new ArrayList<>();
@@ -74,6 +83,7 @@ public class ProduitController {
         }
         return produitsFiltres;
     }
+    
 
     // Méthode pour obtenir la quantité totale en stock de tous les produits
     public int obtenirQuantiteTotaleEnStock() {
@@ -108,6 +118,14 @@ public class ProduitController {
             }
         }
         return produitMoinsCher;
+    }
+
+    public List<Produit> getProduits() {
+        return produits;
+    }
+
+    public void setProduits(List<Produit> produits) {
+        this.produits = produits;
     }
 }
 
